@@ -11,7 +11,7 @@ package com.mycompany.mavenproject1;
  */
 public class principal {
     public static void main(){
-        System.out.println("hola");
+        System.out.println("holaaaa");
     }
     public static String retornar(){
         String entradaTeclado= "sdasda";
