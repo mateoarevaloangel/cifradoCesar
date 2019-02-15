@@ -12,7 +12,10 @@ package com.mycompany.mavenproject1;
 public class principal {
     public static void main(){
         System.out.println("hola");
-    
     }
+    public static String retornar(){
+        String entradaTeclado= "sdasda";
     
+        return "holi";
+    }
 }
