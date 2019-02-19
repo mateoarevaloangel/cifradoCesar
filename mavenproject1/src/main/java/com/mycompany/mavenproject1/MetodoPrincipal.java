@@ -45,11 +45,23 @@ public class MetodoPrincipal {
         char[] cadenaChar = new char[largo];
         cadena= concatenar(palabra);
         valor = retornarClave();
+        valor = validacion(valor);
         int[] mensajeEncriptado = encriptar(cadena,valor);
         cadenaChar = generadorChar(mensajeEncriptado);
         palabra = cadenaChar.toString();
         System.out.println ("el texto encriptado es:"); 
         System.out.println (cadenaChar); 
+     }
+     public static int validacion(int valor){
+         if(valor >128){
+             valor = valor%128;
+         }else{
+             if(valor<-128){
+                 valor = (-1*valor)%128;
+            }
+         }
+         System.out.println ("ESTE ES VALOR INGRESADO"+valor);
+         return valor;
      }
      public static void opcionDesencriptar(){
          String palabra= retornarTexto();
@@ -59,6 +71,7 @@ public class MetodoPrincipal {
         char[] cadenaChar = new char[largo];
         cadena= concatenar(palabra);
         valor = retornarClave();
+        valor = validacion(valor);
         int[] mensajeEncriptado = desencriptar(cadena,valor);
         cadenaChar = generadorChar(mensajeEncriptado);
         palabra = cadenaChar.toString();
@@ -103,6 +116,10 @@ public class MetodoPrincipal {
          int valor=0;
          for(int i = 0 ; i<largo;i++){
              valor = (cadenaNumerica[i])+clave;
+             System.out.println (valor);
+             if(valor>128){
+                 valor=valor %128;
+             }
              mensajeEncriptado[i]=valor;
          }
          return mensajeEncriptado;
@@ -113,6 +130,9 @@ public class MetodoPrincipal {
          int valor=0;
          for(int i = 0 ; i<largo;i++){
              valor = (cadenaNumerica[i])-clave;
+             if(valor<0){
+                 valor=128+valor;
+             }
              mensajeDesencriptado[i]=valor;
          }
          return mensajeDesencriptado;
