@@ -65,7 +65,6 @@ public class MetodoPrincipal {
                  valor = (-1*valor)%128;
             }
          }
-         System.out.println ("ESTE ES VALOR INGRESADO"+valor);
          return valor;
      }
      /**
@@ -87,7 +86,7 @@ public class MetodoPrincipal {
         System.out.println (cadenaChar);
      }
      /**
-      * 
+      * retorna el texto proporcionado por el usuario
       * @return retorna un string con la entrada que ingreso el usuario como texto a encriptar o des encriptar
       */
      public static String retornarTexto(){
@@ -98,7 +97,7 @@ public class MetodoPrincipal {
         return entradaTexto;
     }
      /**
-      * 
+      * resive la clave proporcionada por el usuario
       * @return retorna un int con la entrada que ingreso el usuario como clave a encriptar o des encriptar
       */
      public static Integer retornarClave(){
@@ -141,7 +140,6 @@ public class MetodoPrincipal {
          int valor=0;
          for(int i = 0 ; i<largo;i++){
              valor = (cadenaNumerica[i])+clave;
-             System.out.println (valor);
              if(valor>128){
                  valor=valor %128;
              }
