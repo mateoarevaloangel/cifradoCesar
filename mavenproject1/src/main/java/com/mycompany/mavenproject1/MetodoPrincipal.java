@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 
 /**
- *
+ * 
  * @author daniel
  */
 public class MetodoPrincipal {
@@ -17,7 +17,9 @@ public class MetodoPrincipal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        /**
+         * La funcion opcion pide al usuario que acceda a una opcion
+         */
         opciones();
     }
     public static void opciones(){
@@ -37,9 +39,12 @@ public class MetodoPrincipal {
             }
         }
     }
+    /**
+     * pone a correr el encriptado y imprime el mensaje encriptado
+     */
      public static void opcionEncriptar(){
         String palabra= retornarTexto();
-        int valor =1;
+        int valor =0;
         int largo = palabra.length();
         int[] cadena = new int[largo];
         char[] cadenaChar = new char[largo];
@@ -63,6 +68,9 @@ public class MetodoPrincipal {
          System.out.println ("ESTE ES VALOR INGRESADO"+valor);
          return valor;
      }
+     /**
+     * pone a correr el desencriptado y imprime el mensaje desencriptado
+     */
      public static void opcionDesencriptar(){
          String palabra= retornarTexto();
         int valor =1;
@@ -78,7 +86,10 @@ public class MetodoPrincipal {
         System.out.println ("el texto desencriptado es:");
         System.out.println (cadenaChar);
      }
-    
+     /**
+      * 
+      * @return retorna un string con la entrada que ingreso el usuario como texto a encriptar o des encriptar
+      */
      public static String retornarTexto(){
         String entradaTexto= "";
         System.out.println ("Por favor introduzca una cadena por teclado:");
@@ -86,16 +97,24 @@ public class MetodoPrincipal {
         entradaTexto = entradaEscaner.nextLine ();
         return entradaTexto;
     }
+     /**
+      * 
+      * @return retorna un int con la entrada que ingreso el usuario como clave a encriptar o des encriptar
+      */
      public static Integer retornarClave(){
         String clave;
         int clav;
         Scanner entradaEscaner = new Scanner (System.in); 
         System.out.println ("Por favor introduzca la clave:");
-        
         clave = entradaEscaner.nextLine();
         clav = Integer.parseInt(clave);
         return clav;
     }
+     /**
+      * comvertir el string de ingreso en un array de int
+      * @param mensaje
+      * @return un array de int con los numero que representan el mensaje ingresado
+      */
      public static int[] concatenar(String mensaje){
          int largo = mensaje.length();
          char[] cadena = new char[largo];
@@ -110,6 +129,12 @@ public class MetodoPrincipal {
      public static void ingresoNovalido(){
          System.out.println ("Ingreso no valido");
      }
+     /**
+      * encripta el mensaje 
+      * @param cadenaNumerica
+      * @param clave
+      * @return el mensaje encriptado en una array int
+      */
      public static int[] encriptar(int[] cadenaNumerica , int clave){
          int largo = cadenaNumerica.length;
          int[] mensajeEncriptado = cadenaNumerica;
@@ -124,6 +149,12 @@ public class MetodoPrincipal {
          }
          return mensajeEncriptado;
      }
+     /**
+      * 
+      * @param cadenaNumerica
+      * @param clave
+      * @return el mensaje encriptado en una array int
+      */
      public static int[] desencriptar(int[] cadenaNumerica , int clave){
          int largo = cadenaNumerica.length;
          int[] mensajeDesencriptado = cadenaNumerica;
@@ -137,6 +168,11 @@ public class MetodoPrincipal {
          }
          return mensajeDesencriptado;
      }
+     /**
+      * comvertir el array int de entrada en un array char
+      * @param cadenaNumerica
+      * @return retorna un array 
+      */
      public static char[] generadorChar(int[] cadenaNumerica){
          int largo = cadenaNumerica.length;
          char[] mensajeEncriptado = new char[largo];
